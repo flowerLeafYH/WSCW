@@ -12,6 +12,36 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
+    <style>
+.tipsBj {
+    position: fixed;
+    top: 0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.7);
+    z-index: 4;
+    display: none;
+}
+    .tipsBj img {
+        width: 100%;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+    }
+@media screen and (max-width:320px) {
+    .tipsBj img {
+        width: 85%;
+        right: 0rem;
+    }
+}
+@media screen and (min-width:321px) and (max-width:400px) {
+    .tipsBj img {
+        width: 100%;
+        right: .5rem;
+    }
+}
+    </style>
 </head>
 
 
@@ -40,6 +70,17 @@
 			<td align="center" height="50"><font size="6"><a href="https://github.com/flowerLeafYH/WSCW/raw/master/WSCW.apk">Android安卓下载</a></font></td>
 		</tr>
    </table>
-
+<div class="tipsBj">
+	<img src="https://github.com/flowerLeafYH/WSCWXC/raw/master/tips.png"/>
+</div>
+<script>
+var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+var tips = document.querySelector(".tipsBj")
+if (ua.match(/MicroMessenger/i) == "micromessenger") {
+	//在微信中打开
+	tips.style.display = "block";
+}
+</script
 </body>
 </html>
+
