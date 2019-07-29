@@ -60,13 +60,13 @@
 		<tr>
 			<td align="center" height="50">&nbsp;</td>
 		</tr>
-		<tr>
+		<tr class="android">
 			<td align="center" height="50"><font size="6"><a href="itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com/flowerLeafYH/WSCW/master/manifest.plist">IOS苹果下载</a></font></td>
 		</tr>
 		<tr>
 			<td align="center" height="50">&nbsp;</td>
 		</tr>
-		<tr>
+		<tr class="ios">
 			<td align="center" height="50"><font size="6"><a href="https://github.com/flowerLeafYH/WSCW/raw/master/WSCW.apk">Android安卓下载</a></font></td>
 		</tr>
    </table>
@@ -74,12 +74,29 @@
 	<img src="https://github.com/flowerLeafYH/WSCWXC/raw/master/tips.png"/>
 </div>
 <script>
+var u = navigator.userAgent;
 var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
 var tips = document.querySelector(".tipsBj")
+var an = document.querySelector(".android");
+var ios = document.querySelector(".ios");
 if (ua.match(/MicroMessenger/i) == "micromessenger") {
 	//在微信中打开
 	tips.style.display = "block";
+	an.style.display="block";
+	ios.style.display="block";
 }
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if (isAndroid) {
+       //这个是安卓操作系统
+	an.style.display="block";
+	ios.style.display="none";
+    }
+    if (isIOS) {
+　　　　//这个是ios操作系统
+	    ios.style.display="block";
+	an.style.display="none";
+    }
 </script
 </body>
 </html>
