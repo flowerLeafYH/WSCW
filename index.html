@@ -79,24 +79,25 @@ var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
 var tips = document.querySelector(".tipsBj")
 var an = document.querySelector(".android");
 var ios = document.querySelector(".ios");
+var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 if (ua.match(/MicroMessenger/i) == "micromessenger") {
 	//在微信中打开
 	tips.style.display = "block";
 	an.style.display="block";
 	ios.style.display="block";
-}
-    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
-    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    if (isAndroid) {
+} else if (isAndroid) {
        //这个是安卓操作系统
 	an.style.display="block";
 	ios.style.display="none";
-    }
-    if (isIOS) {
+} else if (isIOS) {
 　　　　//这个是ios操作系统
 	    ios.style.display="block";
 	an.style.display="none";
-    }
+} else {
+   an.style.display="none";
+   ios.style.display="none";
+}
 </script
 </body>
 </html>
